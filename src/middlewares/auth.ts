@@ -3,10 +3,15 @@ import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "vigora-secret-key-2024";
 
-export interface AuthRequest extends Request {
+export type AuthRequest<
+  P = Record<string, string>,
+  ResBody = any,
+  ReqBody = any,
+  ReqQuery = Record<string, unknown>
+> = Request<P, ResBody, ReqBody, ReqQuery> & {
   userId?: number;
   userEmail?: string;
-}
+};
 
 export function authMiddleware(req: AuthRequest, res: Response, next: NextFunction) {
   const authHeader = req.headers.authorization;

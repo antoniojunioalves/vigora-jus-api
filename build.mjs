@@ -1,10 +1,10 @@
-import { createRequire } from "node:module";
+import { context as createEsbuildContext, build as esbuild } from "esbuild";
+import esbuildPluginPino from "esbuild-plugin-pino";
 import { spawn } from "node:child_process";
+import { rm } from "node:fs/promises";
+import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { build as esbuild, context as createEsbuildContext } from "esbuild";
-import esbuildPluginPino from "esbuild-plugin-pino";
-import { rm } from "node:fs/promises";
 
 // Plugins (e.g. 'esbuild-plugin-pino') may use `require` to resolve dependencies
 globalThis.require = createRequire(import.meta.url);
@@ -100,6 +100,7 @@ function createBuildOptions(extraPlugins = []) {
       "wrangler",
       "zeromq",
       "zeromq-prebuilt",
+      "swagger-ui-express",
       "playwright",
       "puppeteer",
       "puppeteer-core",

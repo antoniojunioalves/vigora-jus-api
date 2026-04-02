@@ -1,7 +1,7 @@
 import { pgTable, text, serial, timestamp, integer } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
-import { roleEnum, statusUsuarioEnum, equipesTable } from "./equipes";
+import { roleEnum, statusUsuarioEnum, equipesTable } from "./equipes.js";
 
 export const usuariosTable = pgTable("usuarios", {
   id: serial("id").primaryKey(),

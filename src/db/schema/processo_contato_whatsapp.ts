@@ -1,6 +1,6 @@
-import { pgTable, serial, timestamp, integer, unique } from "drizzle-orm/pg-core";
-import { processosTable } from "./processos";
-import { contatosWhatsappTable } from "./contatos_whatsapp";
+import { integer, pgTable, serial, timestamp, unique } from "drizzle-orm/pg-core";
+import { contatosWhatsappTable } from "./contatos_whatsapp.js";
+import { processosTable } from "./processos.js";
 
 export const processoContatoWhatsappTable = pgTable(
   "processo_contato_whatsapp",

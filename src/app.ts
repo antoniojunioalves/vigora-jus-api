@@ -2,9 +2,9 @@ import cors from "cors";
 import express, { type Express } from "express";
 import pinoHttp from "pino-http";
 import swaggerUi from "swagger-ui-express";
-import { logger } from "./lib/logger";
-import { swaggerSpec } from "./lib/swagger";
-import router from "./routes";
+import { logger } from "./lib/logger.js";
+import { swaggerSpec } from "./lib/swagger.js";
+import router from "./routes/index.js";
 
 const app: Express = express();
 

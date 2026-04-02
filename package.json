@@ -18,6 +18,8 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2",
     "drizzle-orm": "^0.45.1",
+    "drizzle-kit": "^0.31.0",
+    "drizzle-zod": "^0.7.0",
     "esbuild": "^0.27.3",
     "esbuild-plugin-pino": "^2.3.3",
     "express": "^5",
@@ -38,8 +40,6 @@
     "@types/node": "^22.0.0",
     "@types/pg": "^8.11.10",
     "@types/swagger-ui-express": "^4.1.8",
-    "drizzle-kit": "^0.31.0",
-    "drizzle-zod": "^0.7.0",
     "typescript": "^5.9.2"
   }
 }

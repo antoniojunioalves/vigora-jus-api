@@ -1,4 +1,5 @@
 import { Router, type IRouter } from "express";
+import { isDatabaseConfigured } from "../db/index.js";
 import healthRouter from "./health.js";
 import authRouter from "./auth.js";
 import clientesRouter from "./clientes.js";
@@ -14,6 +15,18 @@ import equipeRouter from "./equipe.js";
 const router: IRouter = Router();
 
 router.use(healthRouter);
+router.use((req, res, next) => {
+  if (isDatabaseConfigured) {
+    next();
+    return;
+  }
+
+  res.status(503).json({
+    error: "service_unavailable",
+    message:
+      "Banco de dados indisponível no momento. A documentação Swagger continua disponível em /api-docs.",
+  });
+});
 router.use("/auth", authRouter);
 router.use("/clientes", clientesRouter);
 router.use("/processos", processosRouter);
